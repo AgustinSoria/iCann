@@ -1,0 +1,30 @@
+<nav>
+  <button [ngClass]="{'active': currentSection === 'inicio'}" (click)="selectSection('inicio')">
+    <span class="circle"></span>
+    <span class="label">Inicio</span>
+  </button>
+  <button [ngClass]="{'active': currentSection === 'quienes-somos'}" (click)="selectSection('quienes-somos')">
+    <span class="circle"></span>
+    <span class="label">Quienes Somos</span>
+  </button>
+  <button [ngClass]="{'active': currentSection === 'productos'}" (click)="selectSection('productos')">
+    <span class="circle"></span>
+    <span class="label">Productos</span>
+  </button>
+  <button [ngClass]="{'active': currentSection === 'faq'}" (click)="selectSection('faq')">
+    <span class="circle"></span>
+    <span class="label">FAQ</span>
+  </button>
+  <button [ngClass]="{'active': currentSection === 'tienda'}" (click)="selectSection('tienda')">
+    <span class="circle"></span>
+    <span class="label">Tienda</span>
+  </button>
+  <button [ngClass]="{'active': currentSection === 'testimonios'}" (click)="selectSection('testimonios')">
+    <span class="circle"></span>
+    <span class="label">Testimonios</span>
+  </button>
+  <button [ngClass]="{'active': currentSection === 'contactenos'}" (click)="selectSection('contactenos')">
+    <span class="circle"></span>
+    <span class="label">Contactenos</span>
+  </button>
+</nav>

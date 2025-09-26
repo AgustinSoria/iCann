@@ -1,0 +1,47 @@
+nav {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    padding: 10px;
+    padding-right: 25px;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin: 10px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .circle {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+  
+  .label {
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+  }
+  
+  button:hover .label,
+  button.active .label {
+    opacity: 1;
+  }
+  
+  button.active .circle {
+    background-color: rgba(255, 255, 255, 0.4);
+  }

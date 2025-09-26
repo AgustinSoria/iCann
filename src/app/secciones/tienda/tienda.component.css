@@ -1,0 +1,12 @@
+.main-section {
+  position: fixed;
+  top: -32px;
+  right: 0px;
+  height: 100vh; 
+  width: 100vw;
+  background-color: #f3af71; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}

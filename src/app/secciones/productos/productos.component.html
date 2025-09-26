@@ -1,0 +1,21 @@
+<div class="gallery-container">
+  <div
+    class="slide"
+    *ngFor="let product of products; let i = index"
+    [ngClass]="['bg-color-' + (i + 1), getSlideClass(i)]"
+    [attr.data-index]="i"
+  >
+    <img
+      [src]="product.image"
+      alt="Producto"
+      class="product-image"
+      [class.zoom-in]="zoomIn"
+    />
+    <div class="product-info">
+      <h2>{{ product.name }}</h2>
+      <p class="description"><strong>Descripción:</strong> {{ product.description }}</p>
+      <p class="uses"><strong>Usos:</strong> {{ product.uses }}</p>
+      <p class="properties"><strong>Propiedades:</strong> {{ product.properties }}</p>
+    </div>
+  </div>
+</div>

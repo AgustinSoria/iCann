@@ -1,0 +1,74 @@
+.gallery-container {
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image {
+  max-width: 45%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 20px;
+  text-align: center;
+  max-width: 45%;
+  margin-right: 10vw;
+}
+
+/* ===== Colores y estilos de texto según producto ===== */
+.bg-color-1 {
+  background-color: #184a00;
+  color: #e0ecd2;
+}
+
+.bg-color-2 {
+  background-color: #6242aa;
+  color: #f8f8f8;
+}
+
+.bg-color-3 {
+  background-color: #bfd7c7;
+  color: #1a1a1a;
+}
+
+.bg-color-4 {
+  background-color: #ffa202;
+  color: #e0ecd2;
+}
+
+.bg-color-5 {
+  background-color: #f3af71;
+  color: #e0ecd2;
+}
+
+.bg-color-6 {
+  background-color: #184a00;
+  color: #ffffff;
+}
+
+/* ===== Zoom efecto ===== */
+.zoom-in {
+  animation: zoomIn 0.5s ease forwards;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

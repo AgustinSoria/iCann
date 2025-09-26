@@ -1,0 +1,56 @@
+.main-footer{
+      background: none;
+      display: flex;
+      
+}
+
+
+.isologo {
+    position: fixed; 
+    top: 25px;       
+    left: 1.5vw;      
+    z-index: 10;   
+  }
+
+  .title {
+    position: fixed; 
+    top: 18px;       
+    left: 6vw;      
+    z-index: 10;  
+  }
+
+  
+  .svg-logo {
+    width: 70px;     /* Ajusta el tamaño del logo según sea necesario */
+    height: 69px;
+  }
+
+
+  .svg-title {
+    width: 70px;
+    height: 70px;
+  }
+
+  .separator {
+    position: fixed; 
+    top: 40px; 
+    left: 15vw; 
+  }
+
+  .instagram {
+    position: fixed; 
+    top: 40px; 
+    left: 76vw; 
+  }
+
+  .facebook {
+    position: fixed; 
+    top: 40px; 
+    left: 80vw; 
+  }
+
+  .contact {
+    position: fixed; 
+    top: 40px; 
+    left: 85vw;
+  }

@@ -1,0 +1,21 @@
+.main-section {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: -32px;
+  right: 0px;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  width: 100vw;
+  background-color: #e1eed1; /* Color pastel */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+p {
+/* font-size: larger; */
+color: blueviolet;
+font-size: 20px;
+width: 70vw;
+}
