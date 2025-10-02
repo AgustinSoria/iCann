@@ -1,0 +1,23 @@
+<div class="sidebar">
+  <button [ngClass]="{'active': currentSection === 'inicio'}" (click)="selectSection('inicio')">
+    <span class="label">Inicio</span>
+  </button>
+  <button [ngClass]="{'active': currentSection === 'quienes-somos'}" (click)="selectSection('quienes-somos')">
+    <span class="label">Quienes Somos</span>
+  </button>
+  <button [ngClass]="{'active': currentSection === 'productos'}" (click)="selectSection('productos')">
+    <span class="label">Productos</span>
+  </button>
+  <button [ngClass]="{'active': currentSection === 'faq'}" (click)="selectSection('faq')">
+    <span class="label">FAQ</span>
+  </button>
+  <button [ngClass]="{'active': currentSection === 'tienda'}" (click)="selectSection('tienda')">
+    <span class="label">Tienda</span>
+  </button>
+  <button [ngClass]="{'active': currentSection === 'testimonios'}" (click)="selectSection('testimonios')">
+    <span class="label">Testimonios</span>
+  </button>
+  <button [ngClass]="{'active': currentSection === 'contactenos'}" (click)="selectSection('contactenos')">
+    <span class="label">Contáctenos</span>
+  </button>
+</div>

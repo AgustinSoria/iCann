@@ -12,10 +12,12 @@
       [class.zoom-in]="zoomIn"
     />
     <div class="product-info">
-      <h2>{{ product.name }}</h2>
-      <p class="description"><strong>Descripción:</strong> {{ product.description }}</p>
-      <p class="uses"><strong>Usos:</strong> {{ product.uses }}</p>
-      <p class="properties"><strong>Propiedades:</strong> {{ product.properties }}</p>
+      <h2 class="title-name">{{ product.name }}</h2>
+      <div class="text-container">
+        <p class="description"><strong>Descripción:</strong> {{ product.description }}</p>
+        <p class="uses"><strong>Usos:</strong> {{ product.uses }}</p>
+        <p class="properties"><strong>Propiedades:</strong> {{ product.properties }}</p>
+      </div>
     </div>
   </div>
 </div>
