@@ -12,7 +12,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     CommonModule,
     HeaderComponent,
     MainContainerComponent,
-    FooterComponent,
     SidebarComponent
   ],
   templateUrl: './app.component.html',
