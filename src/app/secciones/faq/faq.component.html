@@ -1,1 +1,35 @@
-<p class="main-section">faq works!</p>
+<section class="faq-section">
+  <div class="faq-container">
+    <!-- Bucle de secciones -->
+    <div
+      *ngFor="let section of sections; let si = index"
+      class="faq-section-block"
+      [ngClass]="'section-' + section.key"
+    >
+      <!-- Título de sección -->
+      <h2 class="section-title">
+        {{ section.title }}
+      </h2>
+
+      <!-- Preguntas dentro de la sección -->
+      <div
+        *ngFor="let item of getFaqsBySection(section.key); let i = index"
+        class="faq-card"
+        (click)="toggle(si * 100 + i)"
+        [class.active]="openIndex === si * 100 + i"
+      >
+        <div class="faq-question">
+          <h3>{{ item.question }}</h3>
+          <span class="icon" [class.rotate]="openIndex === si * 100 + i">⌄</span>
+        </div>
+
+        <div
+          class="faq-answer"
+          [style.maxHeight]="openIndex === si * 100 + i ? '200px' : '0'"
+        >
+          <p>{{ item.answer }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

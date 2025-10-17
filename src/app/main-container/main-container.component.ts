@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { InicioComponent } from '../secciones/inicio/inicio.component';
 import { QuienesSomosComponent } from '../secciones/quienes-somos/quienes-somos.component';
 import { ProductosComponent } from '../secciones/productos/productos.component';
-import { FAQComponent } from '../secciones/faq/faq.component';
+import { FaqComponent } from '../secciones/faq/faq.component';
 import { TiendaComponent } from '../secciones/tienda/tienda.component';
 import { TestimoniosComponent } from '../secciones/testimonios/testimonios.component';
 import { ContactenosComponent } from '../secciones/contactenos/contactenos.component';
@@ -16,7 +16,7 @@ import { ContactenosComponent } from '../secciones/contactenos/contactenos.compo
     InicioComponent,
     QuienesSomosComponent,
     ProductosComponent,
-    FAQComponent,
+    FaqComponent,
     TiendaComponent,
     TestimoniosComponent,
     ContactenosComponent],

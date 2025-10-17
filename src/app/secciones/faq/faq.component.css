@@ -10,3 +10,127 @@
   align-items: center;
   font-size: 2em;
 }
+
+/* ======== SECCIÓN GENERAL ======== */
+.faq-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(145deg, #d7e1d9, #e0ecd2);
+  color: #fff;
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  box-sizing: border-box;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 80%;
+}
+
+/* ======== BLOQUES DE SECCIÓN ======== */
+.faq-section-block {
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+/* ======== TÍTULO DE SECCIÓN ======== */
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-transform: capitalize;
+}
+
+/* ======== PREGUNTAS ======== */
+.faq-card {
+  background-color: rgba(31, 41, 55, 0.8);
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.faq-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.faq-card.active {
+  background-color: rgba(37, 99, 235, 0.9);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.icon.rotate {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+  margin-top: 1rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+/* ======== COLORES DE SECCIONES ======== */
+.section-sobre-cannabis {
+ background: linear-gradient(145deg, #9f80c5, #6b5ca0);
+}
+
+.section-aceites-medicinales {
+  background: linear-gradient(145deg, #184a00, #10b981);
+}
+
+/* Ejemplo para las demás secciones que podrías agregar: */
+.section-aceite-mascotas {
+  background: linear-gradient(145deg, #ffa202, #f59e0b);
+}
+
+.section-crema-cbd {
+  background: linear-gradient(145deg, #6242aa, #8466d3);
+}
+
+.section-gel-criogenico {
+  background: linear-gradient(145deg, #92a4e6, #06b6d4);
+}
+
+.section-envios {
+  background: linear-gradient(145deg, #4c1d95, #8b5cf6);
+}
+
+.faq-answer p {
+  margin-top: 1rem;
+  line-height: 1.7;
+  font-size: 0.98rem;
+  color: #e5e7eb;
+  white-space: pre-line; /* mantiene los \n */
+  letter-spacing: 0.3px; /* mejora legibilidad */
+}
