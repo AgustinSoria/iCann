@@ -9,10 +9,24 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  @Input() currentSection!: string;
+  @Input() currentSection: string | null = null;
   @Output() sectionChange = new EventEmitter<string>();
+  @Output() menuToggle = new EventEmitter<boolean>();
+
+  menuOpen = false;
 
   selectSection(section: string) {
     this.sectionChange.emit(section);
+    this.menuOpen = false;
+  }
+
+ toggleMenu() {
+  this.menuOpen = !this.menuOpen;
+  this.menuToggle.emit(this.menuOpen);
+}
+
+  goHome(): void {
+    this.sectionChange.emit('inicio');  // <<--- acá resolvemos el problema
+    this.menuOpen = false;
   }
 }

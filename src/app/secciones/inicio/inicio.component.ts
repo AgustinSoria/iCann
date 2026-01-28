@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-inicio',
@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class InicioComponent {
 
+  @Output() sectionChange = new EventEmitter<string>();
+
+  goSection(section: string) {
+    this.sectionChange.emit(section);
+  }
 }

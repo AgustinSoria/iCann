@@ -1,5 +1,16 @@
-<app-header [currentSection]="currentSection" (sectionChange)="setSection($event)"></app-header>
+<app-header
+  [currentSection]="currentSection"
+  (sectionChange)="setSection($event)"
+  (menuToggle)="toggleSidebar($event)">
+</app-header>
 
-<app-sidebar [currentSection]="currentSection" (sectionChange)="setSection($event)"></app-sidebar>
+<app-sidebar
+  [currentSection]="currentSection"
+  [sidebarOpen]="sidebarOpen"
+  (sectionChange)="setSection($event)">
+</app-sidebar>
 
-<app-main-container [currentSection]="currentSection"></app-main-container>
+<app-main-container
+  [currentSection]="currentSection"
+  (sectionChange)="setSection($event)">
+</app-main-container>

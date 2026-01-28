@@ -1,10 +1,20 @@
-<div class="hero-container">
-  <div class="hero-image"></div>
-  <div class="hero-info">
-    <h2 class="hero-title">Cannabis Medicinal</h2>
+<div class="hero">
+  <div class="hero-left">
+    <img src="/productos/imagen2.jpeg" alt="Cannabis medicinal">
+  </div>
+
+  <div class="hero-right">
+    <h1 class="hero-title">Cannabis Medicinal</h1>
+
     <p class="hero-text">
-      En iCann creemos que la medicina natural y orgánica debe estar al alcance de todas las personas. Nacimos desde la experiencia en el cultivo y el trabajo comunitario, con la convicción de que esta planta tiene un enorme potencial para mejorar la salud y el bienestar.
+      En iCann creemos que la medicina natural y orgánica debe estar al alcance de todas las personas.
+      Nacimos desde la experiencia en el cultivo y el trabajo comunitario, con la convicción de que esta
+      planta tiene un enorme potencial para mejorar la salud y el bienestar.
     </p>
-    <button class="hero-button">Ver productos</button>
+
+    <div class="hero-buttons">
+      <button class="btn-primary" (click)="goSection('productos')"> Ver productos </button>
+      <button class="btn-outline" (click)="goSection('faq')"> Saber más </button>
+    </div>
   </div>
 </div>

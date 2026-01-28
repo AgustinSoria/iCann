@@ -1,3 +1,7 @@
+/* =========================================================
+   SIDEBAR — DESKTOP
+   ========================================================= */
+
 .sidebar {
   position: fixed;
   top: 8vh;
@@ -5,34 +9,153 @@
   height: 92vh;
   width: 180px;
   background-color: #e0ecd2;
+
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateX(150px); /* oculto casi completo */
   transition: transform 0.3s ease;
-  transform: translateX(140px); /* deja visible un pequeño tab */
   z-index: 999;
+
+  font-family: inherit;
+  color: #184a00;
 }
 
+/* Hover = abrir sidebar en desktop */
 .sidebar:hover {
   transform: translateX(0);
 }
 
+/* =========================================================
+   TAB (flecha lateral)
+   ========================================================= */
+
+.sidebar-tab {
+  position: absolute;
+  left: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 28px;
+  height: 80px;
+  background-color: #e0ecd2;
+  border-radius: 8px 0 0 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.arrow {
+  font-size: 20px;
+  color: #184a00;
+  transition: transform 0.3s ease;
+}
+
+.sidebar:hover .arrow {
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   MENU ITEMS
+   ========================================================= */
+
+.menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  text-align: left;
+}
+
 .sidebar button {
+  width: 100%;
   background: none;
   border: none;
-  color: #184a00;
-  font-family: inherit;
+
   font-size: 1rem;
-  text-align: left;
-  padding: 0.5rem 0;
-  width: 100%;
   cursor: pointer;
+
+  color: #184a00;
   opacity: 0.4;
-  transition: all 0.3s ease;
+
+  padding: 0.4rem 0 0.4rem 0.6rem;
+
+  transition: opacity 0.3s ease;
+  text-align: left;
+
+  font-family: inherit;
 }
 
 .sidebar button:hover,
 .sidebar button.active {
   opacity: 1;
+}
+
+/* Sidebar cerrado en desktop → ocultar labels y opciones */
+.sidebar:not(:hover) .label {
+  display: none;
+}
+
+.sidebar:not(:hover) .menu-options {
+  visibility: hidden;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ocultamos flecha lateral */
+  .desktop-only {
+    display: none;
+  }
+
+  /* sidebar móvil desde la derecha */
+  .sidebar {
+    width: 70vw;
+    transform: translateX(100%);
+    padding: 2rem 1.5rem;
+    justify-content: flex-start;
+    overflow-y: auto; /* ← clave */
+  }
+
+  /* toggle desde Angular */
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* menú siempre visible */
+  .menu-options {
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+  }
+
+  .sidebar button {
+    font-size: 1.1rem;
+    padding: 0.8rem 0;
+  }
+
+  .label {
+    display: inline;
+  }
+
+  /* 🚨 FIX: en mobile NO debe ocultarse nada */
+  .sidebar:not(:hover) .label {
+    display: inline !important;
+  }
+
+  .sidebar:not(:hover) .menu-options {
+    visibility: visible !important;
+    display: flex !important;
+  }
 }

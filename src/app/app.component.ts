@@ -19,8 +19,13 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 })
 export class AppComponent {
   currentSection = 'inicio';
+  sidebarOpen = false;
 
   setSection(section: string) {
     this.currentSection = section;
+  }
+
+  toggleSidebar(isOpen: boolean) {
+    this.sidebarOpen = isOpen;
   }
 }

@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class SidebarComponent {
   @Input() currentSection: string = '';
+  @Input() sidebarOpen: boolean = false;  // ← NECESARIO PARA MOBILE
+
   @Output() sectionChange = new EventEmitter<string>();
 
   sections = [
@@ -22,7 +24,9 @@ export class SidebarComponent {
     { id: 'contactenos', label: 'Contáctenos' },
   ];
 
-  selectSection(id: string) {
-    this.sectionChange.emit(id);
-  }
+  selectSection(sectionId: string) {
+  this.sectionChange.emit(sectionId);   // avisamos al padre
+  this.sidebarOpen = false;             // 🔥 autocierre en mobile
+}
+
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InicioComponent } from '../secciones/inicio/inicio.component';
 import { QuienesSomosComponent } from '../secciones/quienes-somos/quienes-somos.component';
@@ -25,4 +25,9 @@ import { ContactenosComponent } from '../secciones/contactenos/contactenos.compo
 })
 export class MainContainerComponent {
   @Input() currentSection!: string;
+  @Output() sectionChange = new EventEmitter<string>();
+
+onSectionChange(section: string) {
+  this.sectionChange.emit(section);
+}
 }
