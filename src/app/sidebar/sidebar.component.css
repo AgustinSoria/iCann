@@ -6,6 +6,8 @@
   position: fixed;
   top: 8vh;
   right: 0;
+  /* ← SIEMPRE A LA DERECHA */
+  left: unset !important;
   height: 92vh;
   width: 180px;
   background-color: #e0ecd2;
@@ -15,7 +17,8 @@
   align-items: center;
   justify-content: center;
 
-  transform: translateX(150px); /* oculto casi completo */
+  transform: translateX(150px);
+  /* oculto hacia la derecha */
   transition: transform 0.3s ease;
   z-index: 999;
 
@@ -97,7 +100,7 @@
   opacity: 1;
 }
 
-/* Sidebar cerrado en desktop → ocultar labels y opciones */
+/* Ocultar labels y menú cuando está cerrada (SOLO DESKTOP) */
 .sidebar:not(:hover) .label {
   display: none;
 }
@@ -107,34 +110,45 @@
 }
 
 /* =========================================================
-   MOBILE
+   MOBILE — SIDEBAR SIEMPRE A LA DERECHA
    ========================================================= */
 
 @media (max-width: 768px) {
 
-  /* ocultamos flecha lateral */
   .desktop-only {
     display: none;
   }
 
-  /* sidebar móvil desde la derecha */
   .sidebar {
-    width: 70vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    /* ← MOBILE A LA DERECHA */
+    left: unset !important;
+
+    width: 260px;
+    height: 100vh;
+
+    background: #f8f8f8;
+    box-shadow: -4px 0 14px rgba(0, 0, 0, 0.15);
+
     transform: translateX(100%);
-    padding: 2rem 1.5rem;
-    justify-content: flex-start;
-    overflow-y: auto; /* ← clave */
+    /* ← CERRADO hacia la derecha */
+    transition: transform 0.35s ease;
   }
 
-  /* toggle desde Angular */
   .sidebar.open {
     transform: translateX(0);
   }
 
-  /* menú siempre visible */
+  .sidebar .label {
+    padding-left: 0.8rem;
+  }
+
+  /* menú visible siempre */
   .menu-options {
-    visibility: visible;
-    display: flex;
+    visibility: visible !important;
+    display: flex !important;
     flex-direction: column;
     gap: 1.2rem;
     width: 100%;
@@ -146,16 +160,6 @@
   }
 
   .label {
-    display: inline;
-  }
-
-  /* 🚨 FIX: en mobile NO debe ocultarse nada */
-  .sidebar:not(:hover) .label {
     display: inline !important;
-  }
-
-  .sidebar:not(:hover) .menu-options {
-    visibility: visible !important;
-    display: flex !important;
   }
 }

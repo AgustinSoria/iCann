@@ -1,23 +1,61 @@
-<div class="gallery-container">
-  <div
-    class="slide"
-    *ngFor="let product of products; let i = index"
-    [ngClass]="['bg-color-' + (i + 1), getSlideClass(i)]"
-    [attr.data-index]="i"
-  >
-    <img
-      [src]="product.image"
-      alt="Producto"
-      class="product-image"
-      [class.zoom-in]="zoomIn"
-    />
-    <div class="product-info">
-      <h2 class="title-name">{{ product.name }}</h2>
-      <div class="text-container">
-        <p class="description"><strong>Descripción:</strong> {{ product.description }}</p>
-        <p class="uses"><strong>Usos:</strong> {{ product.uses }}</p>
-        <p class="properties"><strong>Propiedades:</strong> {{ product.properties }}</p>
+<div class="productos-wrapper">
+
+  <!-- SLIDER -->
+  <div class="slider" [style.transform]="'translateX(-' + currentSlide * 100 + 'vw)'">
+
+    <div
+      class="slide"
+      *ngFor="let p of products"
+      [style.background]="p.gradient ? p.gradient : p.backgroundColor"
+    >
+      <div class="slide-content">
+
+        <!-- Título centrado arriba -->
+        <h1 class="product-title">{{ p.title }}</h1>
+        <h2 class="product-subtitle">{{ p.subtitle }}</h2>
+
+        <div class="product-body">
+
+          <!-- Imagen -->
+          <div class="product-image">
+            <img [src]="p.image" [alt]="p.title" />
+          </div>
+
+          <!-- Texto -->
+          <div class="product-info">
+
+            <h3>Descripción</h3>
+            <p *ngFor="let d of p.description">{{ d }}</p>
+
+            <h3>Usos</h3>
+            <ul>
+              <li *ngFor="let u of p.uses">{{ u }}</li>
+            </ul>
+
+            <h3>Propiedades</h3>
+            <ul>
+              <li *ngFor="let pr of p.properties">{{ pr }}</li>
+            </ul>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
+
+  <!-- BOTONES SLIDER -->
+  <button class="nav-btn left" (click)="prevSlide()">❮</button>
+  <button class="nav-btn right" (click)="nextSlide()">❯</button>
+
+  <!-- INDICADORES -->
+  <div class="dots">
+    <span
+      class="dot"
+      *ngFor="let p of products; index as i"
+      [class.active]="i === currentSlide"
+      (click)="goToSlide(i)"
+    ></span>
+  </div>
+
 </div>

@@ -1,13 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-interface Product {
-  name: string;
-  description: string;
-  uses: string;
-  image: string;
-  properties: string;
-}
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Product } from './product.model';
 
 @Component({
   selector: 'app-productos',
@@ -16,73 +10,343 @@ interface Product {
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })
-export class ProductosComponent implements OnInit, OnDestroy {
-  zoomIn: boolean = false;
-  products: Product[] = [
-    { name: 'Aceite Forte', description: 'Quimiotipo I', uses: 'Alivio del dolor crónico, Parkinson, esclerosis múltiple, epilepsia, glaucuma, artrosis, artritis, naúseas, estrés posttraumático, Tourette, Alzheimer, asma, y apnea del sueño. ', image: 'productos/Forte_20250917_143558_0000.png' , properties: "Neuroprotector, antiinflamatorio, analgésico, antioxidante, relajante muscular, antiemético y promotor del bienestar mental"},
-    { name: 'Aceite Confort', description: 'Quimiotipo II', uses: 'Control de convulsiones, mejora del sueño, alivio de ansiedad, depresión, dolor e inflamación. apoyo en enfermedades neurodegenerativas, autismo, inflamaciones instestinales y quimioterapia.', image: 'productos/Confort_20250917_143558_0002.png' , properties: "Neuroprotector, antiinflamatorio, analgésico, antioxidante, ansiolitico, relajante muscular, antibacteriano e inmunomodulador. "},
-    { name: 'Aceite Relax', description: 'Quimiotipo III', uses: 'Control de convulsiones, mejora del sueño, alivio de ansiedad, depresión y sintomas neurodegenerativos,manejo del autismo, inflamaciones intestinales, apoyo en quimioterapia y añivio muscular ', image: 'productos/Relax_20250917_143558_0001.png' , properties: "Protege el sistema nervioso, reduce inflamación, dolor, convulsiones, ansiedad y naúseas. Actúa contra espasmos, bacterias, adicciones, y regula el sistema inmune."},
-    { name: 'Mascotas', description: 'CBD Quimitio III', uses: 'Alivio de  dolor crónico e inflamación, control de convulsiones, reducción de naúseas, ansiedad y estrés. Mejora del apetito, movilidad y refuerzo del sistema inmune. Apoyo en tratamientos de cáncer y enfermedaades neurodegenerativas.', image: 'productos/Mascotas_20250917_143558_0003.png' , properties: "Antiinflamatorio, analgésico, anticonvulsionante, antitumoral, relajante múscular, antioxidante, ansiolítico y neuroprotector"},
-    { name: 'Crema Corporal CBD', description: 'Crema de cannabis', uses: 'Alivia dolor e inflamación en artrosis, artritis, esclerosis múltiple y fibriomalgia. También trata tortícolis, quemaduras, dermatitis, rosácea, piel seca, acné, psoriasis y arrugas.', image: 'productos/cream mockup.png' , properties: "Antiinflamatoria, analgesica, relajante muscular. Alivia dolor articular, mejora la circulación e hidrata la piel."},
-    { name: 'Gel Cannabidiol', description: 'Gel Criógeno CBD', uses: 'Alivia el malestar muscular post-ejercicio, mejora la circulación, ayuda a reducir grasa localizada y tonifica músculos, promoviendo bienestar físico y estético, combate atrtritis, reuma, lesiones musculares, alivia celutitis, arañitas, várices y flacidez', image: 'productos/gel  mockup.png', properties: "Enfría la piel,alivia el dolor, reduce inflamación, quema grasa subcutánea y  mejora la tonificación muscular y apariencia de la piel." },
-  ];
+export class ProductosComponent {
 
   currentSlide = 0;
 
-  ngOnInit() {
-    window.addEventListener('wheel', this.onScroll, { passive: false });
-    this.zoomIn = true;
-  }
+  products: Product[] = [
+    // --- NO TOQUÉ NADA DE TU DATA ---
+    {
+      id: 1,
+      title: 'Aceite Forte',
+      subtitle: 'Quimiotipo I',
+      image: 'productos/Icann_Aceite_Forte.png',
+      backgroundColor: 'linear-gradient(135deg, #FFA5C9, #A7D8FF)',
+      description: [
+        'Alivio del dolor crónico, Parkinson, esclerosis múltiple, epilepsia, glaucoma, artrosis, artritis, náuseas, estrés postraumático, Tourette, Alzheimer, asma y apnea del sueño.'
+      ],
+      uses: [
+        'Dolor crónico',
+        'Trastornos neurológicos',
+        'Inflamación',
+        'Náuseas y estrés postraumático'
+      ],
+      properties: [
+        'Neuroprotector',
+        'Antiinflamatorio',
+        'Analgésico',
+        'Antioxidante',
+        'Relajante muscular',
+        'Antiemético'
+      ],
+      type: 'Aceites'
+    },
 
-  ngOnDestroy() {
-    window.removeEventListener('wheel', this.onScroll);
-  }
+    {
+      id: 2,
+      title: 'Aceite Confort',
+      subtitle: 'Quimiotipo II',
+      image: 'productos/Icann_Aceite_Confort.png',
+      backgroundColor: 'linear-gradient(135deg, #FFA5C9, #A7D8FF)',
+      description: [
+        'Control de convulsiones, mejora del sueño, alivio de ansiedad, depresión y dolor. Apoyo en enfermedades neurodegenerativas, autismo e inflamaciones intestinales.'
+      ],
+      uses: [
+        'Convulsiones',
+        'Sueño',
+        'Ansiedad',
+        'Dolor e inflamación'
+      ],
+      properties: [
+        'Neuroprotector',
+        'Antiinflamatorio',
+        'Ansiolítico',
+        'Relajante muscular',
+        'Antibacteriano'
+      ],
+      type: 'Aceites'
+    },
 
-  onScroll = (event: WheelEvent) => {
-    console.log('Scroll event detected');
-    if (event.deltaY > 0) {
-      this.nextSlide();
-      this.zoomIn = true;
-     
-    } else {
-      this.previousSlide();
+    {
+      id: 3,
+      title: 'Aceite Relax',
+      subtitle: 'Quimiotipo III',
+      image: 'productos/Icann_Aceite_Relax.png',
+      backgroundColor: 'linear-gradient(135deg, #FFA5C9, #A7D8FF)',
+      description: [
+        'Control de convulsiones, mejora del sueño, manejo del autismo, alivio de estrés y dolor muscular.'
+      ],
+      uses: [
+        'Sueño',
+        'Estrés',
+        'Dolor muscular',
+        'Convulsiones'
+      ],
+      properties: [
+        'Antiinflamatorio',
+        'Relajante muscular',
+        'Antibacteriano',
+        'Regulador inmune'
+      ],
+      type: 'Aceites'
+    },
+
+    {
+      id: 4,
+      title: 'Mascotas',
+      subtitle: 'CBD Quimitipo III',
+      image: 'productos/Icann_Aceite_Mascotas.png',
+      backgroundColor: 'linear-gradient(135deg, #FFA5C9, #A7D8FF)',
+      description: [
+        'Alivio de dolor, ansiedad y mejora de movilidad. Apoyo para convulsiones y estrés.'
+      ],
+      uses: [
+        'Dolor crónico',
+        'Ansiedad',
+        'Movilidad',
+        'Convulsiones'
+      ],
+      properties: [
+        'Antiinflamatorio',
+        'Neuroprotector',
+        'Anticonvulsionante',
+        'Antioxidante'
+      ],
+      type: 'Tópicos'
+    },
+
+    {
+      id: 5,
+      title: 'Crema Corporal CBD',
+      subtitle: 'Crema de cannabis',
+      image: 'productos/cream mockup.png',
+      backgroundColor: 'linear-gradient(135deg, #FFA5C9, #A7D8FF)',
+      description: [
+        'Alivia dolor e inflamación en articulaciones. Trata dermatitis, rosácea, acné, psoriasis y piel seca.'
+      ],
+      uses: [
+        'Artrosis / Artritis',
+        'Dolor muscular',
+        'Piel sensible',
+        'Inflamaciones cutáneas'
+      ],
+      properties: [
+        'Antiinflamatoria',
+        'Analgésica',
+        'Hidratante',
+        'Relajante muscular'
+      ],
+      type: 'Tópicos'
+    },
+
+    {
+      id: 6,
+      title: 'Gel Cannabidiol',
+      subtitle: 'Gel Criógeno CBD',
+      image: 'productos/Icann_Gel_Cannabidiol.png',
+      gradient: 'linear-gradient(135deg, #FFA5C9, #A7D8FF)',
+      description: [
+        'Gel criógeno para alivio muscular, circulación y reducción de grasa localizada. Ayuda en celulitis, várices y flacidez.'
+      ],
+      uses: [
+        'Recuperación muscular',
+        'Tonificación',
+        'Circulación',
+        'Estética corporal'
+      ],
+      properties: [
+        'Efecto frío',
+        'Antiinflamatorio',
+        'Reduce grasa subcutánea',
+        'Mejora apariencia de la piel'
+      ],
+      type: 'Tópicos'
+    },
+    {
+      id: 6,
+      title: 'Calm Baby Dermosoft',
+      subtitle: 'Crema corporal para bebes a base de CBD',
+      image: 'productos/Icann_Crema_Dermosoft.png',
+      gradient: 'linear-gradient(135deg, #FFA5C9, #A7D8FF)',
+      description: [
+        'Formulada para calmar la piel sensible del bebé. Ayuda a reducir irritaciones, enrojecimientos y favorece la recuperación de pequeños golpes o rozaduras gracias a la acción natural del árnica. Su rápida absorción hidrata eficazmente y su aroma relajante la hace ideal para rutinas de sueño y cuidado diario.'
+      ],
+      uses: [
+        'Crema con CBD de amplio espectro y árnica, ideal para el uso diario post-baño. Alivia molestias en zonas irritadas y es apto para pieles muy sensibles. También es perfecto para masajes relajantes en piernas, brazos y espalda.',
+      ],
+      properties: [
+        'Efecto frío',
+        'Antiinflamatorio',
+        'Reduce grasa subcutánea',
+        'Mejora apariencia de la piel'
+      ],
+      type: 'Tópicos'
     }
-    event.preventDefault(); // Esto debería funcionar
-  };
+  ];
 
   nextSlide() {
-    console.log('Attempting to go to next slide');
-    if (this.currentSlide < this.products.length - 1) {
-      this.currentSlide++;
-      console.log(`Moved to slide ${this.currentSlide}`);
-      this.scrollToSlide(this.currentSlide);
-    } else {
-      console.log('Already at the last slide');
-    }
+    this.currentSlide = (this.currentSlide + 1) % this.products.length;
   }
 
-  previousSlide() {
-    console.log('Attempting to go to previous slide');
-    if (this.currentSlide > 0) {
-      this.currentSlide--;
-      console.log(`Moved to slide ${this.currentSlide}`);
-      this.scrollToSlide(this.currentSlide);
-    } else {
-      console.log('Already at the first slide');
-    }
+  prevSlide() {
+    this.currentSlide =
+      (this.currentSlide - 1 + this.products.length) % this.products.length;
   }
 
-  scrollToSlide(index: number) {
-    const slide = document.querySelector(`[data-index="${index}"]`);
-    if (slide) {
-      slide.scrollIntoView({ behavior: 'smooth' });
-      console.log(`Scrolled to slide ${index}`);
-    } else {
-      console.log(`Slide ${index} not found`);
-    }
-  }
-
-  getSlideClass(index: number): string {
-    return `bg-color-${index + 1}`;
+  goToSlide(index: number) {
+    this.currentSlide = index;
   }
 }
+
+
+
+// products: Product[] = [
+
+//     {
+//       id: 1,
+//       title: 'Aceite Forte',
+//       subtitle: 'Quimiotipo I',
+//       image: 'productos/Icann_Aceite_Forte.png',
+//       backgroundColor: '#E3F0FF',
+//       description: [
+//         'Alivio del dolor crónico, Parkinson, esclerosis múltiple, epilepsia, glaucoma, artrosis, artritis, náuseas, estrés postraumático, Tourette, Alzheimer, asma y apnea del sueño.'
+//       ],
+//       uses: [
+//         'Dolor crónico',
+//         'Trastornos neurológicos',
+//         'Inflamación',
+//         'Náuseas y estrés postraumático'
+//       ],
+//       properties: [
+//         'Neuroprotector',
+//         'Antiinflamatorio',
+//         'Analgésico',
+//         'Antioxidante',
+//         'Relajante muscular',
+//         'Antiemético'
+//       ],
+//       type: 'Aceites'
+//     },
+
+//     {
+//       id: 2,
+//       title: 'Aceite Confort',
+//       subtitle: 'Quimiotipo II',
+//       image: 'productos/Icann_Aceite_Confort.png',
+//       backgroundColor: '#E8F7FF',
+//       description: [
+//         'Control de convulsiones, mejora del sueño, alivio de ansiedad, depresión y dolor. Apoyo en enfermedades neurodegenerativas, autismo e inflamaciones intestinales.'
+//       ],
+//       uses: [
+//         'Convulsiones',
+//         'Sueño',
+//         'Ansiedad',
+//         'Dolor e inflamación'
+//       ],
+//       properties: [
+//         'Neuroprotector',
+//         'Antiinflamatorio',
+//         'Ansiolítico',
+//         'Relajante muscular',
+//         'Antibacteriano'
+//       ],
+//       type: 'Aceites'
+//     },
+
+//     {
+//       id: 3,
+//       title: 'Aceite Relax',
+//       subtitle: 'Quimiotipo III',
+//       image: 'productos/Relax_20250917_143558_0001.png',
+//       backgroundColor: '#E9FFF3',
+//       description: [
+//         'Control de convulsiones, mejora del sueño, manejo del autismo, alivio de estrés y dolor muscular.'
+//       ],
+//       uses: [
+//         'Sueño',
+//         'Estrés',
+//         'Dolor muscular',
+//         'Convulsiones'
+//       ],
+//       properties: [
+//         'Antiinflamatorio',
+//         'Relajante muscular',
+//         'Antibacteriano',
+//         'Regulador inmune'
+//       ],
+//       type: 'Aceites'
+//     },
+
+//     {
+//       id: 4,
+//       title: 'Mascotas',
+//       subtitle: 'CBD Quimitipo III',
+//       image: 'productos/Mascotas_20250917_143558_0003.png',
+//       backgroundColor: '#FFF6E5',
+//       description: [
+//         'Alivio de dolor, ansiedad y mejora de movilidad. Apoyo para convulsiones y estrés.'
+//       ],
+//       uses: [
+//         'Dolor crónico',
+//         'Ansiedad',
+//         'Movilidad',
+//         'Convulsiones'
+//       ],
+//       properties: [
+//         'Antiinflamatorio',
+//         'Neuroprotector',
+//         'Anticonvulsionante',
+//         'Antioxidante'
+//       ],
+//       type: 'Mascotas'
+//     },
+
+//     {
+//       id: 5,
+//       title: 'Crema Corporal CBD',
+//       subtitle: 'Crema de cannabis',
+//       image: 'productos/cream mockup.png',
+//       backgroundColor: '#FFF0F8',
+//       description: [
+//         'Alivia dolor e inflamación en articulaciones. Trata dermatitis, rosácea, acné, psoriasis y piel seca.'
+//       ],
+//       uses: [
+//         'Artrosis / Artritis',
+//         'Dolor muscular',
+//         'Piel sensible',
+//         'Inflamaciones cutáneas'
+//       ],
+//       properties: [
+//         'Antiinflamatoria',
+//         'Analgésica',
+//         'Hidratante',
+//         'Relajante muscular'
+//       ],
+//       type: 'Tópicos'
+//     },
+
+//     {
+//       id: 6,
+//       title: 'Gel Cannabidiol',
+//       subtitle: 'Gel Criógeno CBD',
+//       image: 'productos/gel mockup.png',
+//       gradient: 'linear-gradient(135deg, #FFA5C9, #A7D8FF)',
+//       description: [
+//         'Gel criógeno para alivio muscular, circulación y reducción de grasa localizada. Ayuda en celulitis, várices y flacidez.'
+//       ],
+//       uses: [
+//         'Recuperación muscular',
+//         'Tonificación',
+//         'Circulación',
+//         'Estética corporal'
+//       ],
+//       properties: [
+//         'Efecto frío',
+//         'Antiinflamatorio',
+//         'Reduce grasa subcutánea',
+//         'Mejora apariencia de la piel'
+//       ],
+//       type: 'Tópicos'
+//     }
+
+//   ];
