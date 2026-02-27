@@ -10,3 +10,60 @@
   align-items: center;
   font-size: 2em;
 }
+/* ------------------------------------------
+   CONTENEDOR GENERAL
+------------------------------------------ */
+.hero {
+  display: flex;
+  height: 85vh;
+  width: 100%;
+  margin-top: 12vh;
+}
+
+/* ------------------------------------------
+   BLOQUE IZQUIERDO — FOTO VERTICAL
+------------------------------------------ */
+.hero-left {
+  flex: 1;
+  display: flex;
+}
+
+.hero-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85) saturate(1.1);
+  border-radius: 0 25px 25px 0;
+}
+
+/* ------------------------------------------
+   BLOQUE DERECHO — INFO
+------------------------------------------ */
+.hero-right {
+  flex: 1;
+  background: linear-gradient(135deg, #e7f3dd 0%, #ffffff 65%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem;
+  border-radius: 25px 0 0 25px;
+}
+
+/* ------------------------------------------
+   TIPOGRAFÍA
+------------------------------------------ */
+.hero-title {
+  font-family: "Castio";
+  font-size: 3rem;
+  color: #184a00;
+  margin-bottom: 1.8rem;
+}
+
+.hero-text {
+  font-family: "BlauerNue";
+  font-size: 1.15rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
