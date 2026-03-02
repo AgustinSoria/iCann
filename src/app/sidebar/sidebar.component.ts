@@ -13,7 +13,7 @@ export class SidebarComponent {
   @Input() sidebarOpen: boolean = false;  // ← NECESARIO PARA MOBILE
 
   @Output() sectionChange = new EventEmitter<string>();
-  @Output() closeSidebar = new EventEmitter<void>();
+  @Output() closeSidebar = new EventEmitter<boolean>();
 
   sections = [
     { id: 'inicio', label: 'Inicio' },
@@ -27,9 +27,8 @@ export class SidebarComponent {
 
   selectSection(sectionId: string) {
   this.sectionChange.emit(sectionId);   // avisamos al padre
-  this.sidebarOpen = false;        
-    this.closeSidebar.emit();  
-    console.log("se emitio el side bar close desde elñ side bar component")   // 🔥 autocierre en mobile
+    this.sidebarOpen = false;
+    this.closeSidebar.emit(this.sidebarOpen);  
 }
 
 }

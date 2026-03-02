@@ -20,12 +20,26 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 export class AppComponent {
   currentSection = 'inicio';
   sidebarOpen = false;
+  isOpen: boolean = false;
 
   setSection(section: string) {
     this.currentSection = section;
+    this.isOpen = false;
   }
 
   toggleSidebar(isOpen: boolean) {
-    this.sidebarOpen = isOpen;
+    this.isOpen = isOpen
+    this.sidebarOpen = this.isOpen;
   }
+
+  closeSidebarHandler() {
+  this.sidebarOpen = this.isOpen;
+
+  requestAnimationFrame(() => {
+    const el = document.querySelector('.sidebar') as HTMLElement;
+    if (el) {
+      el.classList.remove('open');
+    }
+  });
+}
 }

@@ -8,7 +8,8 @@
   [currentSection]="currentSection"
   [sidebarOpen]="sidebarOpen"
   (sectionChange)="setSection($event)"
-  (closeSidebar)="sidebarOpen = false">
+  (closeSidebar)="sidebarOpen = false"
+  (closeSidebar)="closeSidebarHandler()">
 </app-sidebar>
 
 <app-main-container

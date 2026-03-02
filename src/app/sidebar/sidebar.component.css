@@ -27,10 +27,11 @@
 }
 
 /* Hover = abrir sidebar en desktop */
-.sidebar:hover {
-  transform: translateX(0);
+@media (min-width: 769px) {
+  .sidebar:hover {
+    transform: translateX(0);
+  }
 }
-
 /* =========================================================
    TAB (flecha lateral)
    ========================================================= */
