@@ -1,10 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
-  font-family: 'Castio';
-  src: url('/productos/fonts/Castio-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+  font-family: "Castio";
+  src: url("/fonts/Castio-Regular.otf") format("opentype");
 }
-body {
-  font-family: 'Castio', sans-serif;
+
+@font-face {
+  font-family: "BlauerNue";
+  src: url("/fonts/Blauer-Nue-Regular-iF6626350c83fdf.otf") format("opentype");
+}
+
+.product-title {
+  font-family: "Castio";
+}
+
+.product-info,
+.product-subtitle,
+p,
+li {
+  font-family: "BlauerNue";
 }

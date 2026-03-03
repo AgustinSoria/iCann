@@ -41,6 +41,7 @@ li {
   height: 100vh;
   padding: 4rem 3rem;
   box-sizing: border-box;
+  align-content: center;
 }
 
 .slide-content {
@@ -73,14 +74,14 @@ li {
 
 /* Imagen más chica */
 .product-image img {
-  width: 35vw; /* ← ajuste entre 30–45% */
+  width: 31vw; /* ← ajuste entre 30–45% */
   max-height: 60vh;
   object-fit: contain;
 }
 
 /* Texto a la derecha */
 .product-info {
-  width: 45vw;
+  width: 33vw;
 }
 
 .product-info h3 {
@@ -139,5 +140,71 @@ li {
 @media (max-width: 768px) {
   .product-swipe-zone {
     touch-action: pan-y; /* permite scroll vertical, evita choques */
+  }
+}
+
+/* ==========================
+   MOBILE FIX REAL (tu HTML)
+   ========================== */
+@media (max-width: 768px) {
+
+  /* Fuerza layout vertical */
+  .product-body {
+    flex-direction: column !important;
+    gap: 1.2rem;
+    align-items: center;
+  }
+
+  /* Imagen ocupa todo el ancho */
+  .product-image img {
+    width: 80vw !important;
+    max-height: 40vh;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* Título más chico y cerca del header */
+  .product-title {
+    font-size: 1.9rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  /* Subtítulo acompaña la escala del título */
+  .product-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  /* Texto ocupa todo el ancho y no se va abajo */
+  .product-info {
+    width: 90vw !important;
+    padding: 0 1rem;
+    font-size: 1rem;
+  }
+
+  /* Centrado suave de listas y párrafos */
+  .product-info h3 {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .product-info p,
+  .product-info li {
+    text-align: left;
+  }
+
+  /* Botones mejor posicionados para pulgar */
+  .nav-btn.left {
+    left: 5%;
+  }
+
+  .nav-btn.right {
+    right: 5%;
+  }
+
+  .dots {
+    top: 6.5vh;
   }
 }

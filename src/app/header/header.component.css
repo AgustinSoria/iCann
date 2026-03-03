@@ -181,6 +181,7 @@
 
   .hamburger {
     display: flex;
+    margin-right: 10vw;
   }
 
   .header-badge {
