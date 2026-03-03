@@ -13,6 +13,11 @@ import { Product } from './product.model';
 export class ProductosComponent {
 
   currentSlide = 0;
+  // --- Control de Swipe ---
+  private touchStartX = 0;
+  private touchStartY = 0;
+  private readonly MIN_SWIPE_X = 40;
+  private readonly MAX_VERTICAL_DRIFT = 30;
 
   products: Product[] = [
     // --- NO TOQUÉ NADA DE TU DATA ---
@@ -186,15 +191,50 @@ export class ProductosComponent {
 
   nextSlide() {
     this.currentSlide = (this.currentSlide + 1) % this.products.length;
+    console.log("se ejecut9o nextSlide")
   }
 
   prevSlide() {
     this.currentSlide =
       (this.currentSlide - 1 + this.products.length) % this.products.length;
+      console.log("se ejecut9o prevSlide")
   }
 
   goToSlide(index: number) {
     this.currentSlide = index;
+  }
+
+  onTouchStart(event: TouchEvent) {
+    if (event.touches.length !== 1) return;
+
+    const touch = event.touches[0];
+    this.touchStartX = touch.clientX;
+    this.touchStartY = touch.clientY;
+  }
+
+  onTouchEnd(event: TouchEvent) {
+    if (event.changedTouches.length !== 1) return;
+
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - this.touchStartX;
+    const deltaY = Math.abs(touch.clientY - this.touchStartY);
+
+    // ignorar si hubo mucho movimiento vertical → permite scroll
+    if (deltaY > this.MAX_VERTICAL_DRIFT) return;
+
+    // Swipe Right → producto anterior
+    if (deltaX > this.MIN_SWIPE_X) {
+      console.log("swipeando right en onTouchEnd");
+      this.prevSlide();   // tu función existente
+      return;
+    }
+
+    // Swipe Left → producto siguiente
+    if (deltaX < -this.MIN_SWIPE_X) {
+      console.log("swipeando left en onTouchEnd");
+      this.nextSlide();   // tu función existente
+      return;
+    }
   }
 }
 

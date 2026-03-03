@@ -100,7 +100,7 @@ li {
   padding: 1rem 1.4rem;
   cursor: pointer;
   border-radius: 50%;
-  z-index: 800;
+  z-index: 1000;
 }
 
 /* Más hacia el centro */
@@ -109,7 +109,7 @@ li {
 }
 
 .right {
-  right: 10%;
+  right: 16%;
 }
 
 /* ------------------ DOTS ------------------ */
@@ -134,4 +134,10 @@ li {
 
 .dot.active {
   background: white;
+}
+
+@media (max-width: 768px) {
+  .product-swipe-zone {
+    touch-action: pan-y; /* permite scroll vertical, evita choques */
+  }
 }

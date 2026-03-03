@@ -1,20 +1,16 @@
 <div class="productos-wrapper">
 
   <!-- SLIDER -->
-  <div class="slider" [style.transform]="'translateX(-' + currentSlide * 100 + 'vw)'">
+  <div class="slider" [style.transform]="'translateX(-' + currentSlide * 100 + 'vw)'" >
 
-    <div
-      class="slide"
-      *ngFor="let p of products"
-      [style.background]="p.gradient ? p.gradient : p.backgroundColor"
-    >
-      <div class="slide-content">
+    <div class="slide" *ngFor="let p of products" [style.background]="p.gradient ? p.gradient : p.backgroundColor">
+      <div class="slide-content" >
 
         <!-- Título centrado arriba -->
         <h1 class="product-title">{{ p.title }}</h1>
         <h2 class="product-subtitle">{{ p.subtitle }}</h2>
 
-        <div class="product-body">
+        <div class="product-body" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
 
           <!-- Imagen -->
           <div class="product-image">
@@ -50,12 +46,8 @@
 
   <!-- INDICADORES -->
   <div class="dots">
-    <span
-      class="dot"
-      *ngFor="let p of products; index as i"
-      [class.active]="i === currentSlide"
-      (click)="goToSlide(i)"
-    ></span>
+    <span class="dot" *ngFor="let p of products; index as i" [class.active]="i === currentSlide"
+      (click)="goToSlide(i)"></span>
   </div>
 
 </div>
