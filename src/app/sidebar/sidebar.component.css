@@ -6,8 +6,8 @@
   position: fixed;
   top: 8vh;
   right: 0;
-  /* ← SIEMPRE A LA DERECHA */
   left: unset !important;
+
   height: 92vh;
   width: 180px;
   background-color: #e0ecd2;
@@ -17,10 +17,9 @@
   align-items: center;
   justify-content: center;
 
-  transform: translateX(150px);
-  /* oculto hacia la derecha */
+  transform: translateX(150px); /* oculto hacia la derecha */
   transition: transform 0.3s ease;
-  z-index: 999;
+  z-index: 900; /* más bajo que host.open (999) */
 
   font-family: inherit;
   color: #184a00;
@@ -32,6 +31,7 @@
     transform: translateX(0);
   }
 }
+
 /* =========================================================
    TAB (flecha lateral)
    ========================================================= */
@@ -52,7 +52,7 @@
   justify-content: center;
 
   cursor: pointer;
-  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.2);
+  box-shadow: -2px 0 6px rgba(0,0,0,0.2);
 }
 
 .arrow {
@@ -111,7 +111,7 @@
 }
 
 /* =========================================================
-   MOBILE — SIDEBAR SIEMPRE A LA DERECHA
+   MOBILE — SIDEBAR CONTROLADO POR BOTÓN
    ========================================================= */
 
 @media (max-width: 768px) {
@@ -120,30 +120,47 @@
     display: none;
   }
 
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    /* ← MOBILE A LA DERECHA */
-    left: unset !important;
+  /* --------------------------
+     HOST (app-sidebar)
+     -------------------------- */
 
-    width: 260px;
+ :host {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: auto;
+  height: auto;
+
+  z-index: 1 !important;      /* siempre detrás del header */
+  pointer-events: none !important;  /* no tapa nada */
+}
+
+:host(.open) {
+  z-index: 2000 !important;   /* se pone por encima SOLO si está abierto */
+  pointer-events: auto !important;
+}
+
+  /* --------------------------
+     SIDEBAR INTERNO
+     -------------------------- */
+  .sidebar {
+    top: 0;
     height: 100vh;
+    width: 260px;
 
     background: #f8f8f8;
-    box-shadow: -4px 0 14px rgba(0, 0, 0, 0.15);
+    box-shadow: -4px 0 14px rgba(0,0,0,0.15);
 
-    transform: translateX(100%);
-    /* ← CERRADO hacia la derecha */
+    transform: translateX(100%); /* cerrado */
     transition: transform 0.35s ease;
+
+    pointer-events: none; /* se habilita sólo si .open */
   }
 
   .sidebar.open {
     transform: translateX(0);
-  }
-
-  .sidebar .label {
-    padding-left: 0.8rem;
+    pointer-events: auto;
   }
 
   /* menú visible siempre */
@@ -156,11 +173,21 @@
   }
 
   .sidebar button {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     padding: 0.8rem 0;
+    padding-left: 10vw;
   }
 
   .label {
     display: inline !important;
+  }
+
+  /* tab lateral solo clickeable si abierto */
+  .sidebar:not(.open) .sidebar-tab {
+    pointer-events: none;
+  }
+
+  .sidebar.open .sidebar-tab {
+    pointer-events: auto;
   }
 }

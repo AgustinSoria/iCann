@@ -188,3 +188,14 @@
     display: none;
   }
 }
+
+/* ============================================
+   FIX: HAMBURGUESA SIEMPRE ARRIBA EN MOBILE
+=============================================== */
+@media (max-width: 768px) {
+  .hamburger {
+    position: relative;
+    z-index: 3000 !important;
+    pointer-events: auto !important;
+  }
+}

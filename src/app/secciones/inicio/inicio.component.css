@@ -140,9 +140,12 @@
     flex-direction: column;
     height: auto;
     margin-top: 0;
+    position: relative;
+    z-index: 1; 
   }
 
   .hero-left img {
+    display: none;
     border-radius: 0;
     height: 50vh;
   }
@@ -150,9 +153,31 @@
   .hero-right {
     border-radius: 0;
     padding: 3rem 2rem;
+    position: relative;
+    z-index: 2;
   }
 
   .hero-title {
     font-size: 2.4rem;
+    text-align: center;
   }
+
+  .hero-buttons {
+    position: relative;
+    z-index: 3; /* botones siempre al frente */
+  }
+  .hero-right::before {
+  pointer-events: none; /* <<< esto evita que bloquee clics */
+}
+
+.hero-right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/productos/logo.png") top / 75% no-repeat;
+  opacity: 0.2; /* transparencia suave */
+  filter: blur(1px);
+  z-index: 0;
+  transform: translateY(20vh)
+}
 }

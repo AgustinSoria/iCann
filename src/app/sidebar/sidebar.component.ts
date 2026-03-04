@@ -6,7 +6,10 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule], 
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
+  host: {
+  '[class.open]': 'sidebarOpen'
+}
 })
 export class SidebarComponent {
   @Input() currentSection: string = '';
@@ -14,6 +17,8 @@ export class SidebarComponent {
 
   @Output() sectionChange = new EventEmitter<string>();
   @Output() closeSidebar = new EventEmitter<boolean>();
+
+  
 
   sections = [
     { id: 'inicio', label: 'Inicio' },

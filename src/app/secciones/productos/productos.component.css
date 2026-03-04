@@ -60,7 +60,7 @@ li {
 .product-subtitle {
   text-align: center;
   font-size: 1.5rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   color: #184a00;
 }
 
@@ -173,7 +173,7 @@ li {
   /* Subtítulo acompaña la escala del título */
   .product-subtitle {
     font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    /* margin-bottom: 1.5rem; */
     text-align: center;
   }
 
@@ -206,5 +206,28 @@ li {
 
   .dots {
     top: 6.5vh;
+  }
+  .productos-wrapper {
+    height: auto !important;
+    min-height: 100vh;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  .slide {
+    height: auto !important;
+    min-height: 100vh;
+    padding-bottom: 4rem; /* espacio para que no corte el final */
+  }
+
+  .slider {
+    height: auto !important;
+  }
+
+  /* IMPORTANTE: permitir scroll mientras hay swipe horizontal */
+  .product-body,
+  .slide-content {
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch; /* scroll suave iOS */
   }
 }
