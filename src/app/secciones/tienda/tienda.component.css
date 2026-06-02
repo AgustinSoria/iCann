@@ -1,12 +1,213 @@
-.main-section {
-  position: fixed;
-  top: -32px;
-  right: 0px;
-  height: 100vh; 
-  width: 100vw;
-  background-color: #f3af71; 
+/* ------------------------------------------------------------
+   TIPOGRAFÍAS
+------------------------------------------------------------ */
+
+@font-face {
+  font-family: "Castio";
+  src: url("/fonts/Castio-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "BlauerNue";
+  src: url("/fonts/Blauer-Nue-Regular-iF6626350c83fdf.otf") format("opentype");
+}
+
+
+/* ------------------------------------------------------------
+   WRAPPER
+------------------------------------------------------------ */
+
+.store-wrapper {
+  padding: 120px 220px;
+  background: linear-gradient(
+    135deg,
+    #184a00 0%,
+    #e3f2d6 80%
+  );
+}
+
+
+/* ------------------------------------------------------------
+   BANNER
+------------------------------------------------------------ */
+
+.store-banner {
+  position: relative;
+
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 2em;
+
+  min-height: 620px;
+
+  border-radius: 28px;
+  overflow: hidden;
+
+  text-decoration: none;
+
+  background-image: url("../../../../public/productos/imagen5.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+
+  transition: all .35s ease;
+  /* margin-top: 40vh; */
+}
+
+
+.store-banner:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 50px rgba(0,0,0,0.22);
+}
+
+
+/* ------------------------------------------------------------
+   OVERLAY
+------------------------------------------------------------ */
+
+.store-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(24,74,0,0.82) 0%,
+      rgba(24,74,0,0.62) 45%,
+      rgba(24,74,0,0.15) 100%
+    );
+}
+
+
+/* ------------------------------------------------------------
+   CONTENIDO
+------------------------------------------------------------ */
+
+.store-content {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+
+  max-width: 550px;
+
+  padding: 60px;
+}
+
+
+.store-title {
+  font-family: "Castio";
+  font-size: 3rem;
+  line-height: 1.1;
+
+  margin-bottom: 20px;
+
+  color: white;
+}
+
+
+.store-subtitle {
+  font-family: "BlauerNue";
+  font-size: 1.2rem;
+  line-height: 1.6;
+
+  margin-bottom: 35px;
+
+  color: rgba(255,255,255,0.92);
+}
+
+
+.store-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 28px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.35);
+
+  font-family: "BlauerNue";
+  font-size: 1rem;
+  font-weight: 600;
+
+  color: white;
+
+  transition: all .3s ease;
+}
+
+
+.store-banner:hover .store-cta {
+  transform: translateX(6px);
+}
+
+
+.store-cta span {
+  font-size: 1.2rem;
+}
+
+
+/* ------------------------------------------------------------
+   TABLET
+------------------------------------------------------------ */
+
+@media (max-width: 1200px) {
+
+  .store-wrapper {
+    padding: 100px 80px;
+  }
+
+  .store-title {
+    font-size: 2.5rem;
+  }
+
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE
+------------------------------------------------------------ */
+
+@media (max-width: 780px) {
+
+  .store-wrapper {
+    padding: 80px 24px;
+  }
+
+  .store-banner {
+    min-height: 80vh;
+
+    background-position: center;
+  }
+
+  .store-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(24,74,0,0.75) 0%,
+        rgba(24,74,0,0.70) 100%
+      );
+  }
+
+  .store-content {
+    padding: 35px;
+    max-width: 100%;
+  }
+
+  .store-title {
+    font-size: 2rem;
+  }
+
+  .store-subtitle {
+    font-size: 1rem;
+  }
+
+  .store-cta {
+    width: fit-content;
+    margin-top: 40vh;
+  }
+
 }

@@ -99,7 +99,7 @@ export class ProductosComponent {
     {
       id: 4,
       title: 'Mascotas',
-      subtitle: 'CBD Quimitipo III',
+      subtitle: 'CBD Quimiotipo III',
       image: 'productos/Icann_Aceite_Mascotas.png',
       backgroundColor: 'linear-gradient(135deg, #FFA5C9, #A7D8FF)',
       description: [
