@@ -1,6 +1,7 @@
 /* ------------------------------------------------------------
-   TIPOGRAFÍAS (cargando desde public/fonts/)
+   TIPOGRAFÍAS
 ------------------------------------------------------------ */
+
 @font-face {
   font-family: "Castio";
   src: url("/fonts/Castio-Regular.otf") format("opentype");
@@ -11,207 +12,500 @@
   src: url("/fonts/Blauer-Nue-Regular-iF6626350c83fdf.otf") format("opentype");
 }
 
+
 /* ------------------------------------------------------------
-   WRAPPER — full screen + degradado
+   WRAPPER
 ------------------------------------------------------------ */
+
 .contact-wrapper {
+
   position: relative;
-  min-height: 67vh; /* mejor que padding fijo */
-  padding: 120px 220px;
+
+  min-height: 67vh;
+
+  padding: 10vh 20vw;
 
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
 
-  /* Degradado principal SIN imagen */
-  background: linear-gradient(135deg, #184a00 0%, #e3f2d6 80%);
+
+  background:
+    linear-gradient(
+      135deg,
+      #184a00 0%,
+      #e3f2d6 80%
+    );
+
+
   overflow: hidden;
+
 }
+
 
 /* ------------------------------------------------------------
-   IMAGEN LATERAL DERECHA — visible SIEMPRE
+   IMAGEN LATERAL
 ------------------------------------------------------------ */
+
 .background-image-side {
+
   position: absolute;
+
   left: 0;
   top: 0;
-  width: 42%;     /* ajustable */
+
+
+  width: 42%;
   height: 100%;
 
+
   background-image: url("/productos/imagen1.jpeg");
+
   background-size: cover;
+
   background-position: center right;
+
   background-repeat: no-repeat;
 
-  opacity: 0.85; /* probá 0.7 - 1.0 */
-  pointer-events: none; /* no bloquea clics en cards */
+
+  opacity: .85;
+
+  pointer-events: none;
+
 }
 
-/* Capa superior de contenido */
+
+/* ------------------------------------------------------------
+   CONTENIDO
+------------------------------------------------------------ */
+
 .content {
+
   position: relative;
+
   z-index: 2;
+
   max-width: 950px;
+
 }
+
 
 
 /* ------------------------------------------------------------
    TITULOS
 ------------------------------------------------------------ */
+
 .title {
+
   font-family: "Castio";
+
   font-size: 2.6rem;
+
   letter-spacing: 1px;
+
   margin-bottom: 10px;
+
+
   color: #184a00;
+
 }
+
+
 
 .subtitle {
+
   font-family: "BlauerNue";
+
   font-size: 1.2rem;
+
+
   max-width: 600px;
-  /* margin: 0 auto 50px; */
+
+
   color: #184a00;
+
 }
 
 
+
 /* ------------------------------------------------------------
-   GRID de contactos
+   GRID CONTACTO
 ------------------------------------------------------------ */
+
 .contact-grid {
+
   display: flex;
+
   justify-content: center;
+
   align-items: stretch;
+
+
   gap: 40px;
+
+
+  width: 100%;
+
+
   max-width: 950px;
+
+
   padding-top: 50px;
+
+
   margin: 0 auto;
+
 }
 
 
+
 /* ------------------------------------------------------------
-   CARDS con GLASSMORPHISM
+   CARDS GLASSMORPHISM
 ------------------------------------------------------------ */
+
 .contact-card {
-  flex: 1;
-  min-width: 320px;
-  max-width: 400px;
+
+
+  width: 50%;
+
+
   height: 230px;
 
-  /* 🔥 GLASSMORPHISM REAL */
-  background: rgba(255, 255, 255, 0.18);
+
+  background:
+
+    rgba(255,255,255,.18);
+
+
   backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.45);
+
   -webkit-backdrop-filter: blur(14px);
+
+
+
+  border:
+
+    1px solid rgba(255,255,255,.35);
+
+
+
   border-radius: 22px;
 
-  border: 1px solid rgba(255, 255, 255, 0.35);
+
 
   padding: 30px;
 
+
+
   display: flex;
+
+
   flex-direction: column;
+
+
   justify-content: center;
+
+
   align-items: center;
 
+
+
   text-decoration: none;
+
+
+
   gap: 18px;
 
+
+
   font-family: "BlauerNue";
+
+
   font-size: 1.15rem;
+
+
   color: #184a00;
+
+
   font-weight: 500;
 
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-  transition: all 0.35s ease;
+
+
+  box-shadow:
+
+    0 15px 30px rgba(0,0,0,.12);
+
+
+
+  transition:
+
+    all .35s ease;
+
 }
 
 
-/* Iconos */
+
+/* ------------------------------------------------------------
+   ICONOS
+------------------------------------------------------------ */
+
 .contact-card img {
+
   width: 70px;
+
   height: 70px;
+
+
   object-fit: contain;
+
 }
 
 
-/* Hover */
+
+/* ------------------------------------------------------------
+   HOVER
+------------------------------------------------------------ */
+
 .contact-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+
+
+  transform:
+
+    translateY(-10px)
+
+    scale(1.05);
+
+
+
+  box-shadow:
+
+    0 20px 40px rgba(0,0,0,.25);
+
 }
 
 
-/* Colores superiores */
+
+/* ------------------------------------------------------------
+   COLORES
+------------------------------------------------------------ */
+
 .contact-card.insta {
-  border-top: 5px solid #C13584;
+
+  border-top:
+
+    5px solid #C13584;
+
 }
+
+
 
 .contact-card.whatsapp {
-  border-top: 5px solid #25D366;
+
+  border-top:
+
+    5px solid #25D366;
+
 }
+
+
+
 /* ------------------------------------------------------------
-   RESPONSIVE
+   TABLET
 ------------------------------------------------------------ */
-@media (max-width: 780px) {
+
+@media (max-width:1200px) {
+
 
   .contact-wrapper {
-    min-height: 80vh;
-    padding: 60px 42px;
+
+    padding: 100px 80px;
+
+  }
+
+
+}
+
+
+
+/* ------------------------------------------------------------
+   MOBILE
+------------------------------------------------------------ */
+
+@media (max-width:780px) {
+
+
+  .contact-wrapper {
+
+
+    min-height: auto;
+
+
+    padding:
+
+      60px 24px 80px;
+
+
 
     justify-content: center;
+
+
     align-items: center;
+
   }
 
-  /* Ocultamos la imagen lateral en mobile */
+
+
   .background-image-side {
+
     display: none;
+
   }
+
+
 
   .content {
+
+
     width: 100%;
+
+
     max-width: 100%;
+
   }
+
+
 
   .title {
+
+
     font-size: 2rem;
+
+
     text-align: center;
+
   }
+
+
 
   .subtitle {
+
+
     font-size: 1rem;
+
+
     text-align: center;
+
+
     max-width: 100%;
+
+
+    line-height: 1.6;
+
   }
+
+
 
   .contact-grid {
+
+
     flex-direction: column;
+
+
     align-items: center;
 
-    gap: 24px;
 
-    width: 100%;
+
+    gap: 20px;
+
+
 
     padding-top: 30px;
+
+
+
+    width: 100%;
+
   }
+
+
 
   .contact-card {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
 
-    height: 180px;
+
+    width: 85%;
+
+
+    height: 150px;
+
 
     padding: 24px;
+
   }
+
+
 
   .contact-card img {
+
+
     width: 55px;
+
+
     height: 55px;
+
   }
 
+
+
   .contact-card span {
+
+
     text-align: center;
+
+
     word-break: break-word;
+
   }
+
+
+
+}
+
+
+
+/* ------------------------------------------------------------
+   MOBILE PEQUEÑO
+------------------------------------------------------------ */
+
+@media (max-width:360px) {
+
+
+  .contact-wrapper {
+
+
+    padding-left:18px;
+
+
+    padding-right:18px;
+
+  }
+
+
+
+  .title {
+
+
+    font-size:1.8rem;
+
+  }
+
+
+
+  .contact-card {
+
+
+    height:140px;
+
+  }
+
+
 }

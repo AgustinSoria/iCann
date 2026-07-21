@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { InicioComponent } from '../secciones/inicio/inicio.component';
 import { QuienesSomosComponent } from '../secciones/quienes-somos/quienes-somos.component';
 import { ProductosComponent } from '../secciones/productos/productos.component';
@@ -8,26 +9,30 @@ import { TiendaComponent } from '../secciones/tienda/tienda.component';
 import { TestimoniosComponent } from '../secciones/testimonios/testimonios.component';
 import { ContactenosComponent } from '../secciones/contactenos/contactenos.component';
 
-
 @Component({
   selector: 'app-main-container',
   standalone: true,
-  imports: [CommonModule, 
+  imports: [
+    CommonModule,
     InicioComponent,
     QuienesSomosComponent,
     ProductosComponent,
     FaqComponent,
     TiendaComponent,
     TestimoniosComponent,
-    ContactenosComponent],
+    ContactenosComponent
+  ],
   templateUrl: './main-container.component.html',
   styleUrl: './main-container.component.css'
 })
 export class MainContainerComponent {
+
   @Input() currentSection!: string;
+
   @Output() sectionChange = new EventEmitter<string>();
 
-onSectionChange(section: string) {
-  this.sectionChange.emit(section);
-}
+  onSectionChange(section: string): void {
+    this.sectionChange.emit(section);
+  }
+
 }

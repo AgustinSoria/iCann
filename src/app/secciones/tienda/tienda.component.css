@@ -12,7 +12,6 @@
   src: url("/fonts/Blauer-Nue-Regular-iF6626350c83fdf.otf") format("opentype");
 }
 
-
 /* ------------------------------------------------------------
    WRAPPER
 ------------------------------------------------------------ */
@@ -25,7 +24,6 @@
     #e3f2d6 80%
   );
 }
-
 
 /* ------------------------------------------------------------
    BANNER
@@ -42,24 +40,19 @@
   border-radius: 28px;
   overflow: hidden;
 
-  text-decoration: none;
-
   background-image: url("../../../../public/productos/imagen5.jpeg");
   background-size: cover;
   background-position: center;
 
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 
   transition: all .35s ease;
-  /* margin-top: 40vh; */
 }
-
 
 .store-banner:hover {
   transform: translateY(-6px);
-  box-shadow: 0 28px 50px rgba(0,0,0,0.22);
+  box-shadow: 0 28px 50px rgba(0, 0, 0, 0.22);
 }
-
 
 /* ------------------------------------------------------------
    OVERLAY
@@ -72,38 +65,34 @@
   background:
     linear-gradient(
       90deg,
-      rgba(24,74,0,0.82) 0%,
-      rgba(24,74,0,0.62) 45%,
-      rgba(24,74,0,0.15) 100%
+      rgba(24,74,0,.82) 0%,
+      rgba(24,74,0,.62) 45%,
+      rgba(24,74,0,.18) 100%
     );
 }
-
 
 /* ------------------------------------------------------------
    CONTENIDO
 ------------------------------------------------------------ */
 
 .store-content {
-  position: absolute;
-  top: 0;
+  position: relative;
   z-index: 2;
 
-  max-width: 550px;
+  max-width: 560px;
 
   padding: 60px;
 }
-
 
 .store-title {
   font-family: "Castio";
   font-size: 3rem;
   line-height: 1.1;
 
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 
   color: white;
 }
-
 
 .store-subtitle {
   font-family: "BlauerNue";
@@ -112,9 +101,12 @@
 
   margin-bottom: 35px;
 
-  color: rgba(255,255,255,0.92);
+  color: rgba(255,255,255,.92);
 }
 
+/* ------------------------------------------------------------
+   BOTÓN PRINCIPAL
+------------------------------------------------------------ */
 
 .store-cta {
   display: inline-flex;
@@ -123,32 +115,113 @@
 
   padding: 14px 28px;
 
+  border: none;
   border-radius: 999px;
 
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(12px);
+  cursor: pointer;
 
-  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,.35);
+
+  color: white;
 
   font-family: "BlauerNue";
   font-size: 1rem;
   font-weight: 600;
 
-  color: white;
-
-  transition: all .3s ease;
+  transition: .3s;
 }
-
 
 .store-banner:hover .store-cta {
   transform: translateX(6px);
 }
 
-
 .store-cta span {
   font-size: 1.2rem;
 }
 
+/* ------------------------------------------------------------
+   MENSAJE
+------------------------------------------------------------ */
+
+.store-message {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  max-width: 520px;
+
+  animation: fadeIn .4s ease;
+}
+
+.store-message h3 {
+  margin: 0;
+
+  font-family: "Castio";
+  font-size: 2rem;
+
+  color: white;
+}
+
+.store-message p {
+  margin: 0;
+
+  font-family: "BlauerNue";
+  font-size: 1.05rem;
+  line-height: 1.8;
+
+  color: rgba(255,255,255,.94);
+}
+
+.contact-button {
+  width: fit-content;
+
+  padding: 14px 28px;
+
+  border: none;
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  background: rgba(255,255,255,.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,.35);
+
+  color: white;
+
+  font-family: "BlauerNue";
+  font-size: 1rem;
+  font-weight: 600;
+
+  transition: .3s;
+}
+
+.contact-button:hover {
+  transform: translateX(6px);
+}
+
+/* ------------------------------------------------------------
+   ANIMACIÓN
+------------------------------------------------------------ */
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
 
 /* ------------------------------------------------------------
    TABLET
@@ -157,7 +230,11 @@
 @media (max-width: 1200px) {
 
   .store-wrapper {
-    padding: 100px 80px;
+    padding: 90px 60px;
+  }
+
+  .store-banner {
+    min-height: 560px;
   }
 
   .store-title {
@@ -166,7 +243,6 @@
 
 }
 
-
 /* ------------------------------------------------------------
    MOBILE
 ------------------------------------------------------------ */
@@ -174,40 +250,55 @@
 @media (max-width: 780px) {
 
   .store-wrapper {
-    padding: 80px 24px;
+    padding: 60px 24px;
   }
 
   .store-banner {
-    min-height: 80vh;
+    min-height: 78vh;
 
-    background-position: center;
+    align-items: flex-start;
+
+    background-position: center center;
   }
 
   .store-overlay {
     background:
       linear-gradient(
         180deg,
-        rgba(24,74,0,0.75) 0%,
-        rgba(24,74,0,0.70) 100%
+        rgba(24,74,0,.82) 0%,
+        rgba(24,74,0,.72) 100%
       );
   }
 
   .store-content {
-    padding: 35px;
     max-width: 100%;
+    padding: 36px 28px;
   }
 
   .store-title {
     font-size: 2rem;
+    margin-bottom: 18px;
   }
 
   .store-subtitle {
     font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
   }
 
-  .store-cta {
-    width: fit-content;
-    margin-top: 40vh;
+  .store-message h3 {
+    font-size: 1.7rem;
+  }
+
+  .store-message p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .store-cta,
+  .contact-button {
+    width: 100%;
+    justify-content: center;
   }
 
 }
